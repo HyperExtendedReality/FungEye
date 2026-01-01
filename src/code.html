@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FungEye Library</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#11d432",
+                        "primary-dark": "#0ea628",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102213",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#162b19",
+                        "accent-dark": "#1f2e21",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                    boxShadow: {
+                        'glow': '0 0 15px -3px rgba(17, 212, 50, 0.3)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-24">
+<!-- Header -->
+<header class="sticky top-0 z-30 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md p-4 pb-2 justify-between border-b border-gray-200 dark:border-white/5">
+<div class="text-primary flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-[28px] animate-pulse-slow">visibility</span>
+</div>
+<h2 class="text-gray-900 dark:text-white text-xl font-bold leading-tight tracking-tight flex-1 uppercase">FungEye Archive</h2>
+<div class="flex items-center justify-end gap-2">
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-gray-700 dark:text-white transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10 text-gray-700 dark:text-white transition-colors">
+<span class="material-symbols-outlined">grid_view</span>
+</button>
+</div>
+</header>
+<!-- Stats Section -->
+<section class="flex flex-wrap gap-3 px-4 py-4">
+<div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-1 rounded-2xl border border-gray-200 dark:border-primary/20 bg-white dark:bg-surface-dark p-4 items-center text-center shadow-sm">
+<p class="text-gray-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">12</p>
+<div class="flex items-center gap-2">
+<p class="text-gray-500 dark:text-primary/80 text-xs font-medium uppercase tracking-wider">Species Collected</p>
+</div>
+</div>
+<div class="flex min-w-[111px] flex-1 basis-[fit-content] flex-col gap-1 rounded-2xl border border-gray-200 dark:border-primary/20 bg-white dark:bg-surface-dark p-4 items-center text-center shadow-sm">
+<p class="text-gray-900 dark:text-white tracking-tight text-3xl font-bold leading-tight">4</p>
+<div class="flex items-center gap-2">
+<p class="text-gray-500 dark:text-primary/80 text-xs font-medium uppercase tracking-wider">Unique Genera</p>
+</div>
+</div>
+</section>
+<!-- Donate/Action Banner -->
+<section class="px-4 pb-2">
+<div class="relative overflow-hidden flex items-stretch justify-between gap-4 rounded-2xl bg-surface-dark border border-gray-800 dark:border-primary/10 p-5 shadow-lg group">
+<!-- Decorative background blob -->
+<div class="absolute -right-10 -top-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl group-hover:bg-primary/20 transition-all duration-500"></div>
+<div class="flex flex-[2_2_0px] flex-col gap-3 z-10">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary text-sm">cloud_upload</span>
+<p class="text-primary text-xs font-bold uppercase tracking-wider">Feed the Vision</p>
+</div>
+<p class="text-white text-sm font-normal leading-normal font-body opacity-90">Upload verified scans to improve our offline AI model.</p>
+</div>
+<button class="flex items-center justify-center overflow-hidden rounded-lg h-9 px-4 bg-primary hover:bg-primary-dark text-black gap-2 text-sm font-bold leading-normal w-fit transition-colors shadow-glow">
+<span>Donate Data</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="w-24 bg-center bg-no-repeat aspect-square bg-cover rounded-xl flex-shrink-0 border border-white/10" data-alt="Abstract digital visualization of a mushroom scan being processed" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBbkwBJpHSBZ3EV81I00w7X_McgunHb-h9tL95HzsN5XsUC_UfLVRxaLj40WPddbcSjZUfHBu7kz93EFRrjvOGSfQEwwFOxTO3Cvp-7CKoR4-ZrJ99K6qICUERPNQvZQH3dcsTiJmYkjeqeHsELM9ZIuDo-gxWrMLjEfNkhyhJoMmaZMLYOklccaJYyX4BggqDfRg54eVmf3bhSy5cgL_h7tr5BBS6BY0f0Rkv0RKzObaJ5gJZWHhyUXq26WnDDVltYENPWk_cMmhM");'></div>
+</div>
+</section>
+<!-- Filter Chips -->
+<section class="flex gap-3 px-4 py-4 overflow-x-auto no-scrollbar">
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-primary bg-primary/10 pl-5 pr-5 transition-all">
+<p class="text-primary-dark dark:text-primary text-sm font-bold leading-normal">All</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 pl-5 pr-5 hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
+<p class="text-gray-600 dark:text-gray-300 text-sm font-medium leading-normal">Edible</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 pl-5 pr-5 hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
+<p class="text-gray-600 dark:text-gray-300 text-sm font-medium leading-normal">Toxic</p>
+</button>
+<button class="flex h-9 shrink-0 items-center justify-center gap-x-2 rounded-full border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 pl-5 pr-5 hover:bg-gray-100 dark:hover:bg-white/10 transition-all">
+<p class="text-gray-600 dark:text-gray-300 text-sm font-medium leading-normal">Psychoactive</p>
+</button>
+</section>
+<!-- Mushroom Grid -->
+<section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+<!-- Card 1 -->
+<div class="group flex flex-col gap-3 pb-2 rounded-xl p-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-primary/30">
+<p class="text-primary text-xs font-bold">99% Match</p>
+</div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Red mushroom with white spots in forest floor close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBGfbkB_sAXywx6Q-7Glsf42VUPhR6X4qr6kMvbNE-4ewt0wwBdWJe4kPojSSvkJ8sxwd8kfLRLc_cARd4glOsUPziSkJOnIl6kXh_JenacwwSOjqvu0GqU5qjiZRPakfWxwIbskh9klumDLGu8ZlWQJNYLWVROgWTwW3AYsOiER34XmjVrc0CkYBGkizGbKYkY7tPGSu5VKr3P-aeT_XUm2TlKEn33-CBrN7_857ePjq4RXzh_0mM2IegFObwYZfjFrffupUnluD4");'>
+</div>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Fly Agaric</p>
+<span class="material-symbols-outlined text-red-500 text-lg" title="Toxic">warning</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm italic font-body">Amanita muscaria</p>
+<p class="text-gray-400 dark:text-gray-600 text-xs font-normal mt-1 font-body">Oct 24 • Near Pine Creek</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col gap-3 pb-2 rounded-xl p-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-primary/30">
+<p class="text-primary text-xs font-bold">95% Match</p>
+</div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Cluster of golden brown mushrooms growing on wood" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCT3r8MIROwe_J0VpM7kHAT1QYFNo6mrmyAyF-UeawGuYXzczVO0xw1ELqv28GvBgs3g4R59stZxBOeNf2WLPF1UqgbP4UP_aNB5Vk5vWfxoMA_W5iwOEFYrUBhh6WtqYV4aQS3m_mJmKa4ehPvNZFtStG8z9aaAgV9BCRHlcU6Wbj6b32Y7FVZBNOJBCxdmT7xnmUjE8caEVdONUaQsPSoTggVnkDNHGjP48_dBlYdQb3ta8ebWiW-7cW2K02k3rF0ittdBEfJi9Q");'>
+</div>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Golden Cap</p>
+<span class="material-symbols-outlined text-purple-400 text-lg" title="Psychoactive">visibility</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm italic font-body">Psilocybe cubensis</p>
+<p class="text-gray-400 dark:text-gray-600 text-xs font-normal mt-1 font-body">Oct 21 • Greenhouse</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col gap-3 pb-2 rounded-xl p-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-yellow-500/30">
+<p class="text-yellow-500 text-xs font-bold">88% Match</p>
+</div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Yellow wavy mushrooms growing in moss" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDJGzsZiEkRltuUzpzuirXaNH9qU-G_mD0lJm_3otHJw-AgNzmgF8ULQPL4YKK2vmDVZTMk3BlGZKpGv813xl-JMgRslBOga7yZ94eiVmu1igVQROBkLko2vZADH9D267slH1EFAb2AYHaNlflSaMVRlH4ycCwmL2TbZHAtNCwTe5547D8SpigcDwIiV3EXc0XqwEyV0mRXSwWyJqG_jkGRzh14o-uqAEP37-ZlgSQQadkQ91P9y0ZJgi2QDa6Kg1KOfGU4Dkn1yNE");'>
+</div>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Chanterelle</p>
+<span class="material-symbols-outlined text-green-500 text-lg" title="Edible">restaurant</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm italic font-body">Cantharellus</p>
+<p class="text-gray-400 dark:text-gray-600 text-xs font-normal mt-1 font-body">Sep 15 • Oak Ridge</p>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col gap-3 pb-2 rounded-xl p-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors cursor-pointer">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-sm">
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>
+<div class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg border border-primary/30">
+<p class="text-primary text-xs font-bold">92% Match</p>
+</div>
+<div class="w-full h-full bg-center bg-no-repeat bg-cover transform group-hover:scale-110 transition-transform duration-500" data-alt="Honeycomb textured mushroom cap close up" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCixkmILUY6OVh6FyFkgmuXI7JxauvqX5am0hH4qM9SWntLQdQJVhdrNZ_rh1E9RhuNl7Im0oeg84qsDT0RS6iQYxZf75s5-g9b2DmcZAnNbMUknCQyxrgFmbJ0E13qb_kLQpIbvbToPfYcc37Oiiw5tiYDw4V2q91fp82PYFUx3tzGZRbfswYKYzZPnoIyrOJmP5VTPfheh6I1EbpHq1qhDoDaDcOT8JzBQVcZkrVi-KQhWf76Ei5zyILVfoCqt3qMNCeJVso9avQ");'>
+</div>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Morel</p>
+<span class="material-symbols-outlined text-green-500 text-lg" title="Edible">restaurant</span>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm italic font-body">Morchella</p>
+<p class="text-gray-400 dark:text-gray-600 text-xs font-normal mt-1 font-body">Sep 10 • North Face</p>
+</div>
+</div>
+<!-- Card 5 (Pending) -->
+<div class="group flex flex-col gap-3 pb-2 rounded-xl p-2 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors cursor-pointer opacity-80">
+<div class="relative w-full aspect-square rounded-xl overflow-hidden shadow-sm bg-gray-200 dark:bg-white/5 flex items-center justify-center border-2 border-dashed border-gray-300 dark:border-white/10">
+<span class="material-symbols-outlined text-4xl text-gray-400 dark:text-gray-600">image_not_supported</span>
+<div class="absolute bottom-2 left-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-center">
+<p class="text-white text-xs font-medium">Pending Upload</p>
+</div>
+</div>
+<div class="px-1">
+<div class="flex justify-between items-start">
+<p class="text-gray-900 dark:text-white text-lg font-bold leading-tight">Unknown #042</p>
+</div>
+<p class="text-gray-500 dark:text-gray-400 text-sm italic font-body">Scanning offline data...</p>
+<p class="text-gray-400 dark:text-gray-600 text-xs font-normal mt-1 font-body">Today • 2:30 PM</p>
+</div>
+</div>
+</section>
+<!-- Bottom Navigation -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-surface-light/95 dark:bg-[#0c1a0f]/95 backdrop-blur-lg border-t border-gray-200 dark:border-white/5 pb-5 pt-3 px-6 shadow-2xl">
+<div class="flex items-end justify-between max-w-md mx-auto relative">
+<!-- Left Tab -->
+<button class="flex flex-col items-center gap-1 w-16 text-primary group">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform fill-1">photo_library</span>
+<span class="text-[10px] font-bold tracking-wide uppercase">Library</span>
+</button>
+<!-- Center FAB -->
+<div class="absolute left-1/2 -translate-x-1/2 -top-10">
+<button class="relative flex items-center justify-center size-16 rounded-full bg-primary text-black shadow-[0_0_20px_rgba(17,212,50,0.4)] hover:shadow-[0_0_30px_rgba(17,212,50,0.6)] hover:scale-105 transition-all duration-300 border-4 border-surface-light dark:border-background-dark">
+<span class="material-symbols-outlined text-[32px]">filter_center_focus</span>
+</button>
+</div>
+<!-- Right Tab -->
+<button class="flex flex-col items-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors group">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">settings</span>
+<span class="text-[10px] font-bold tracking-wide uppercase">Settings</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>
