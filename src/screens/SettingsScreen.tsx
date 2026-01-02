@@ -49,17 +49,16 @@ export const SettingsScreen = () => {
               Settings
             </Text>
             <View style={styles.versionBadge}>
-              <Text style={styles.versionText}>v2.4.0</Text>
+              <Text style={styles.versionText}>v1.0.0</Text>
             </View>
           </View>
-          <Switch
-            trackColor={{ false: '#767577', true: '#4ade80' }}
-            thumbColor={isDarkMode ? '#f4f3f4' : '#f4f3f4'}
-            ios_backgroundColor="#3e3e3e"
-            onValueChange={toggleTheme}
-            value={isDarkMode}
-            style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
-          />
+          <TouchableOpacity onPress={toggleTheme} style={{ marginRight: 20 }}>
+            <Icon
+              name={isDarkMode ? 'light-mode' : 'dark-mode'}
+              size={20}
+              color={isDarkMode ? '#fff' : '#000'}
+            />
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
 
